@@ -203,6 +203,49 @@ input:focus,select:focus,textarea:focus{border-color:var(--grape);outline:none}
 footer{background:var(--ink);color:var(--bg);padding-block:36px 48px;margin-top:40px;border-radius:48px 48px 0 0}
 .foot{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between;font-size:.9rem;opacity:.9}
 .foot b{font-family:var(--display)}
+/* Opening section: "coming soon" + walkable 3D model of the café */
+.open{position:relative;margin:88px 12px 0;border-radius:40px;overflow:hidden;background:radial-gradient(70% 90% at 0% 0%,var(--sunsoft),transparent 60%),radial-gradient(60% 80% at 100% 0%,var(--grapesoft),transparent 60%),linear-gradient(160deg,var(--skysoft),var(--coralsoft));padding:clamp(22px,4vw,48px);isolation:isolate}
+.open+.hero{margin-top:16px}
+.ogrid{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(18px,3vw,40px);align-items:center;position:relative;z-index:1}
+.soon{display:inline-flex;align-items:center;gap:10px;background:var(--paper);border-radius:999px;padding:7px 14px 7px 10px;font:800 .8rem var(--body);letter-spacing:.12em;text-transform:uppercase;box-shadow:0 6px 18px rgba(19,38,32,.08)}
+.soon i{width:10px;height:10px;border-radius:50%;background:var(--coral);box-shadow:0 0 0 0 rgba(242,100,122,.6);animation:ping 1.6s infinite}
+@keyframes ping{70%{box-shadow:0 0 0 10px rgba(242,100,122,0)}100%{box-shadow:0 0 0 0 rgba(242,100,122,0)}}
+.oh{font-size:clamp(2.8rem,7.4vw,6rem);line-height:.92;font-weight:800;margin:16px 0 0}
+.nov{background:linear-gradient(90deg,var(--coral),var(--lion),var(--sky),var(--grape),var(--coral));background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 6s linear infinite}
+@keyframes shine{to{background-position:300% 0}}
+.badge{display:inline-block;margin-top:16px;background:var(--ink);color:#fff;font:800 1.05rem var(--display);padding:10px 18px;border-radius:16px;transform:rotate(-3deg);box-shadow:0 8px 0 var(--coral);animation:wob 3s ease-in-out infinite}
+@keyframes wob{50%{transform:rotate(2deg) translateY(-3px)}}
+.open .lead{font-size:clamp(1rem,1.5vw,1.15rem);color:var(--muted);max-width:44ch;margin:18px 0 0;font-weight:500}
+.notify{margin-top:22px;background:var(--paper);border-radius:24px;padding:16px;display:grid;gap:10px;box-shadow:0 14px 34px rgba(19,38,32,.08)}
+.notify b{font:800 1.05rem var(--display)}
+.nrow{display:grid;grid-template-columns:1fr 1.2fr auto;gap:8px}
+.nrow input{padding:10px 12px}
+.notify small{color:var(--muted);font-weight:600;font-size:.78rem}
+@media (max-width:560px){.nrow{grid-template-columns:1fr}}
+.tourw{min-width:0}
+.tour{position:relative;border-radius:32px;overflow:hidden;background:linear-gradient(180deg,#eaf5ff,#fff8e2);aspect-ratio:4/3;min-height:320px;box-shadow:0 24px 60px rgba(43,134,217,.18);border:3px solid var(--paper)}
+#room3d{position:absolute;inset:0;width:100%;height:100%;display:block;cursor:grab;touch-action:pan-y}
+#room3d:active{cursor:grabbing}
+.tags{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.tag{position:absolute;left:0;top:0;pointer-events:auto;border:0;background:var(--paper);color:var(--ink);font:800 .78rem var(--body);padding:6px 11px;border-radius:999px;box-shadow:0 6px 16px rgba(0,0,0,.14);cursor:pointer;white-space:nowrap;transition:opacity .25s}
+.tag:hover,.tag[aria-pressed="true"]{background:var(--coral);color:#fff}
+.tcap{position:absolute;left:14px;right:14px;bottom:14px;background:color-mix(in srgb,var(--paper) 92%,transparent);backdrop-filter:blur(8px);border-radius:18px;padding:12px 14px;font-weight:600;font-size:.9rem;transform:translateY(130%);transition:transform .45s cubic-bezier(.3,1.4,.5,1)}
+.tcap.show{transform:none}
+.tcap b{display:block;font:800 1.1rem var(--display)}
+.tnote{position:absolute;top:12px;left:14px;font:700 .72rem var(--body);color:var(--muted);background:color-mix(in srgb,var(--paper) 80%,transparent);padding:4px 10px;border-radius:999px}
+.tlock{position:absolute;top:10px;right:10px}
+.zones{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.zones .chip{background:var(--paper)}
+.bal{position:absolute;z-index:0;font-size:clamp(2rem,4vw,3.2rem);animation:floaty 7s ease-in-out infinite;pointer-events:none;opacity:.9}
+@keyframes floaty{50%{transform:translateY(-22px) rotate(6deg)}}
+@media (max-width:1000px){.ogrid{grid-template-columns:1fr}.tour{aspect-ratio:1/1}}
+@media (max-width:760px){.open{margin-top:80px;border-radius:32px}}
+.wf{display:grid;gap:12px;margin-top:14px;background:var(--paper);border-radius:24px;padding:16px;max-width:760px}
+.fr3{display:grid;grid-template-columns:1.4fr .6fr 1fr;gap:10px}
+@media (max-width:640px){.fr3{grid-template-columns:1fr 1fr}.fr3 label:first-child{grid-column:span 2}}
+[hidden]{display:none!important}
+.hp{position:absolute!important;left:-9999px!important;width:1px;height:1px;opacity:0}
+@media (max-width:560px){.tags,.tnote{display:none}}
 </style>
 
 <nav class="navbar" aria-label="Meniu principal">
@@ -212,8 +255,38 @@ footer{background:var(--ink);color:var(--bg);padding-block:36px 48px;margin-top:
   <a class="btn coral sm navcta" href="#ziua" data-i="navcta">Rezervă</a>
 </nav>
 <canvas id="fx" aria-hidden="true"></canvas>
+<input class="hp" id="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
 
-<header class="hero" id="top">
+<section class="open" id="top" aria-labelledby="oh">
+  <span class="bal" style="left:3%;top:62%">🎈</span><span class="bal" style="left:44%;top:6%;animation-delay:-2s">🎉</span><span class="bal" style="right:2%;bottom:4%;animation-delay:-4s">🎈</span>
+  <div class="ogrid">
+    <div class="ocopy">
+      <span class="soon"><i></i><span data-i="o0">Deschidem în curând</span></span>
+      <h2 class="oh" id="oh" data-i="o1" data-html>Deschidem<br><span class="nov">în curând!</span></h2>
+      <span class="badge" data-i="ob">📅 Noiembrie 2026</span>
+      <p class="lead" data-i="o2">Craft Café · Play &amp; Study se deschide în noiembrie, în Lunca Cetățuii. Până atunci, intră în cafenea în 3D: vezi unde stau părinții la cafea și unde se joacă cei mici.</p>
+      <div class="cta"><button class="btn coral" type="button" id="tourBtn" data-i="o3">Intră în cafenea 👀</button></div>
+      <form class="notify" id="anunt" novalidate>
+        <b data-i="n0">Vrei să afli primul când deschidem?</b>
+        <div class="nrow"><input id="nname" autocomplete="name" aria-label="Nume" data-ph="ph3" placeholder="Numele tău"><input id="ncontact" autocomplete="email" aria-label="Telefon sau email" data-ph="ph4" placeholder="Telefon sau email"><button class="btn green" type="submit" data-i="n1">Anunță-mă 🔔</button></div>
+        <small data-i="n2">Folosim datele doar ca să te anunțăm de deschidere.</small>
+        <div class="out" id="nout" aria-live="polite"></div>
+      </form>
+    </div>
+    <div class="tourw">
+      <div class="tour">
+        <canvas id="room3d" aria-label="Model 3D al cafenelei. Trage ca să rotești."></canvas>
+        <div class="tags" id="tags"></div>
+        <span class="tnote" data-i="o9">Vizualizare 3D orientativă · trage ca să rotești</span>
+        <button class="btn ghost sm tlock" type="button" id="tlock" hidden>Explorează 👆</button>
+        <div class="tcap" id="tcap" aria-live="polite"></div>
+      </div>
+      <div class="zones" id="zones" role="group" aria-label="Zone"></div>
+    </div>
+  </div>
+</section>
+
+<header class="hero" id="acasa">
   <canvas id="pit" aria-label="Piscină cu bile colorate: apucă și aruncă bilele"></canvas>
   <div class="hgrid">
   <div class="copy">
@@ -307,7 +380,12 @@ footer{background:var(--ink);color:var(--bg);padding-block:36px 48px;margin-top:
       <button class="cf-nav prev" type="button" id="cfprev" aria-label="Atelierul anterior">‹</button>
       <button class="cf-nav next" type="button" id="cfnext" aria-label="Atelierul următor">›</button>
     </div>
-    <div class="wrap"><div class="cf-dots" id="cfdots"></div><div class="out" id="wout" aria-live="polite" style="margin-top:14px"></div></div>
+    <div class="wrap"><div class="cf-dots" id="cfdots"></div><div class="out" id="wout" aria-live="polite" style="margin-top:14px"></div>
+      <form class="wf" id="wf" hidden novalidate>
+        <div class="fr3"><label for="wkid"><span data-i="w1">Numele copilului</span><input id="wkid" autocomplete="off"></label><label for="wage"><span data-i="w2">Vârsta</span><input id="wage" type="number" min="1" max="14" inputmode="numeric"></label><label for="wphone"><span data-i="w3">Telefonul tău</span><input id="wphone" type="tel" autocomplete="tel"></label></div>
+        <div><button class="btn coral" type="submit" data-i="w4">Păstrează-mi locul 🎟️</button></div>
+        <div class="out" id="wres" aria-live="polite"></div>
+      </form></div>
   </section>
 
   <section id="mocktail">
@@ -354,6 +432,7 @@ footer{background:var(--ink);color:var(--bg);padding-block:36px 48px;margin-top:
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
@@ -381,7 +460,7 @@ const IMG_OK=new Set(["americano", "babyccino", "caffe_latte", "cappuccino", "ce
 const im=k=>k&&IMG_OK.has(k)?`images/${k}.jpg`:null;
 const CATIMG={cafea:'cappuccino',reci:'iced_latte',fresh:'fresh_portocale',copii:'babyccino',patiserie:'croissant',seara:'bere'};
 const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
-const T={en:{nav1:"The place",nav2:"Menu",nav3:"Birthdays",nav4:"Workshops",nav6:"Mocktail",nav7:"Ideas",navcta:"Book",kick:"Play & Study · Lunca Cetățuii",
+const T={en:{o0:"Opening soon",o1:'Opening<br><span class="nov">very soon!</span>',ob:"📅 November 2026",o2:"Craft Café · Play & Study opens in November in Lunca Cetățuii. Until then, step inside in 3D: see where parents enjoy a coffee and where the little ones play.",o3:"Step inside 👀",o9:"Illustrative 3D view · drag to rotate",n0:"Want to hear first when we open?",n1:"Notify me 🔔",n2:"We only use your details to tell you about the opening.",ph3:"Your name",ph4:"Phone or email",w1:"Child's name",w2:"Age",w3:"Your phone",w4:"Save my spot 🎟️",nav1:"The place",nav2:"Menu",nav3:"Birthdays",nav4:"Workshops",nav6:"Mocktail",nav7:"Ideas",navcta:"Book",kick:"Play & Study · Lunca Cetățuii",
  h1:"Coffee for <span class=\"c1\">you</span>.<br><span class=\"c2\">Play</span> for <span class=\"c3\">them</span>.",lead:"A neighbourhood café with a free play area, a party room and workshops every Saturday. You enjoy a coffee while they climb the loft and ride the slide.",cta1:"Plan their birthday 🎂",cta2:"See the menu",sk1:"🎈 Free play area",sk2:"☕ Cappuccino 12 lei",sk3:"🎨 Saturday workshops",hint:"Grab the balls and throw them 👆",
  k2:"What's inside",h2:"A place built at their height.",p2:"One room, three zones. You can see your child from every seat.",b1k:"Café",b1h:"Specialty coffee, Guatemala 18 g",b1p:"SIM Barista milk or plant milk: oat, almond, coconut, soy.",b2h:"Loft, slide, blocks",b2p:"Free play area with a 15 lei/child minimum spend.",b3p:"interactive screen in the Study room",b4p:"seats at parties",b5k:"Fresh & oven",b5h:"Juices pressed to order, warm pastries",b6h:"2.5-hour parties and workshops every Saturday",b6p:"We set the table and clean up, you have fun.",
  k3:"Our favourites",h3:"What you'll find at the bar.",p3:"Specialty coffee, juices pressed to order, kids' mocktails and warm pastries. The full menu is at the bar.",free:"Free",mnote:"Ask at the bar for allergens. For kids we have small glasses, paper straws and a low table by the loft.",
@@ -390,7 +469,8 @@ const T={en:{nav1:"The place",nav2:"Menu",nav3:"Birthdays",nav4:"Workshops",nav6
  k7:"Mocktail lab",h7:"Invent your mocktail.",p7:"Pick up to three ingredients and watch the glass fill up. Show it to the barista and we make it on the spot.",mreset:"Empty the glass",msave:"I want this mocktail",
  k8:"Ideas & suggestions",h8:"We're building this café together.",p8:"Tell us what you'd like to find here and what to change. We read everything.",m1:"What would you like on the menu?",m2:"Write here",m3:"How do you like the place?",m4:"Another idea for us",fsend:"Send",
  k6:"Contact",h6:"Come say hi.",f1:"Address",f2:"Phone / WhatsApp",copy:"Copy",f3:"Opening",f3v:"November 2026",f3s:"Opening hours will be announced at launch.",ch:"Getting here",cp:"We're on the ground floor of block 1 at Strada Principală 52-54, with a street entrance and step-free access for strollers.",map:"Open in Google Maps ↗",foot:"Free play area for guests. Children stay in their parents' care.",ph1:"e.g. pirates, unicorns",ph2:"e.g. their favourite hero"}};
-const PH={ph1:"ex. pirați, unicorni",ph2:"ex. eroul lui preferat"};
+const PH={ph1:"ex. pirați, unicorni",ph2:"ex. eroul lui preferat",ph3:"Numele tău",ph4:"Telefon sau email"};
+const ENDPOINT='https://script.google.com/macros/s/AKfycbyyKaQp2P8iH7KXyiiwJo8tCo32R7tPxAbb3OcgWBPolmnXBxR7ERzpUJtfGq2k11TYwA/exec';
 let lang='ro',cat='cafea';
 const RO={};document.querySelectorAll('[data-i]').forEach(e=>RO[e.dataset.i]=e.hasAttribute('data-html')?e.innerHTML:e.textContent);
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -433,14 +513,15 @@ function party(x,y,cols){if(!FX)return;const c=cols&&cols.length?cols:['#f2647a'
 $('bf').addEventListener('submit',e=>{e.preventDefault();const o=$('bout');const d=$('bdate').value,p=$('bphone').value.trim();o.className='out show';
  if(!d||!p){o.textContent=lang==='ro'?'Alege data și scrie telefonul tău, apoi trimite din nou.':'Pick a date and add your phone, then send again.';return}
  const txt=lang==='ro'?`Bună! Vreau să rezerv petrecerea pentru ${$('bname').value.trim()} (${age.value} ani).\nData: ${d}, ora ${$('btime').value}\nTema: ${themeName()} · Personaj: ${charName()}\nPachet: ${pkg().ro}, ${kids()} copii, total estimat ${pkg().f(kids())} lei\nNume: ${$('bparent').value.trim()} · Telefon: ${p}`:`Hi! I'd like to book a party for ${$('bname').value.trim()} (turning ${age.value}).\nDate: ${d}, ${$('btime').value}\nTheme: ${themeName()} · Character: ${charName()}\nPackage: ${pkg().en}, ${kids()} kids, estimated ${pkg().f(kids())} lei\nName: ${$('bparent').value.trim()} · Phone: ${p}`;
- o.textContent=(lang==='ro'?'Gata! Mesajul e copiat. Trimite-l pe WhatsApp la 0753 609 479 și îți confirmăm în aceeași zi:\n\n':'Done! The message is copied. Send it on WhatsApp to 0753 609 479 and we confirm the same day:\n\n')+txt;try{navigator.clipboard.writeText(txt).catch(()=>{})}catch(err){}party(.5,.6)});
+ copyTxt(txt);o.textContent=SENDING();party(.5,.6);
+ send('petrecere',{nume:$('bparent').value.trim(),telefon:p,detalii:txt}).then(ok=>{o.textContent=ok?(lang==='ro'?'Am primit cererea! Te sunăm în aceeași zi ca să confirmăm. 🎉\n\n':'Request received! We\'ll call you the same day to confirm. 🎉\n\n')+txt:FAIL()+txt})});
 
 const WS=[{k:'ws_animale',e:'🦁',c:'#f39a23',ro:'Animale din hârtie pentru jungla noastră',en:'Paper animals for our jungle',a:'4–7'},{k:'ws_cuburi',e:'🧱',c:'#2b86d9',ro:'Orașul din cuburi de lemn',en:'A city of wooden blocks',a:'5–10'},{k:'ws_ecran',e:'🎨',c:'#7b5cd6',ro:'Pictăm pe ecranul interactiv',en:'Painting on the interactive screen',a:'3–6'},{k:'ws_cookies',e:'🍪',c:'#f2647a',ro:'Cookies decorate cu animale',en:'Decorating animal cookies',a:'4–10'},{k:'ws_lanterne',e:'🏮',c:'#e9962f',ro:'Lanterne de toamnă',en:'Autumn lanterns',a:'5–10'},{k:'ws_barista',e:'☕',c:'#1d6b4a',ro:'Mini barista: babyccino cu desene',en:'Mini barista: babyccino art',a:'6–10'},{k:'ws_rachete',e:'🚀',c:'#2a2550',ro:'Rachete din carton',en:'Cardboard rockets',a:'5–9'},{k:'ws_coroane',e:'👑',c:'#d1497a',ro:'Coroane și măști',en:'Crowns and masks',a:'3–7'}];
 let cfi=0,cfTimer=null;const cfSel=new Set();
 function renderWS(){const st=$('cfs');st.innerHTML='';const L=WS.filter(w=>IMG_OK.has(w.k));window._WSL=L.length>=4?L:WS;window._WSL.forEach((w,i)=>{const f=document.createElement('figure');f.className='slide';f.style.setProperty('--sc',w.c);f.dataset.i=i;
   f.innerHTML=`${IMG_OK.has(w.k)?`<img src="images/${w.k}.jpg" alt="" loading="lazy">`:`<span class="emo">${w.e}</span>`}<figcaption class="sc"><span class="meta">${lang==='ro'?'Sâmbăta, 11:00':'Saturdays, 11:00'} · ${w.a} ${lang==='ro'?'ani':'yrs'}</span><h3>${esc(w[lang])}</h3><button class="btn ${cfSel.has(i)?'green':'coral'} sm" type="button" data-pick="${i}">${cfSel.has(i)?(lang==='ro'?'✓ Ales':'✓ Picked'):(lang==='ro'?'Vreau un loc':'Save a spot')}</button></figcaption>`;
   f.onclick=e=>{if(e.target.dataset.pick!==undefined)return;if(i!==cfi){cfi=i;cfLayout()}};st.appendChild(f)});
- st.querySelectorAll('[data-pick]').forEach(b=>b.onclick=e=>{e.stopPropagation();const i=+b.dataset.pick;cfSel.has(i)?cfSel.delete(i):cfSel.add(i);renderWS();const o=$('wout');if(!cfSel.size){o.className='out';return}o.className='out show';o.textContent=(lang==='ro'?'Ai ales:\n':'You picked:\n')+[...cfSel].map(k=>'• '+window._WSL[k][lang]).join('\n')+(lang==='ro'?'\n\nTrimite-ne pe WhatsApp la 0753 609 479 numele și vârsta copilului, iar noi îți spunem următoarea dată.':'\n\nSend us the child\'s name and age on WhatsApp at 0753 609 479 and we\'ll tell you the next date.')});
+ st.querySelectorAll('[data-pick]').forEach(b=>b.onclick=e=>{e.stopPropagation();const i=+b.dataset.pick;cfSel.has(i)?cfSel.delete(i):cfSel.add(i);renderWS();const o=$('wout');if(!cfSel.size){o.className='out';$('wf').hidden=true;return}o.className='out show';o.textContent=(lang==='ro'?'Ai ales:\n':'You picked:\n')+[...cfSel].map(k=>'• '+window._WSL[k][lang]).join('\n')+(lang==='ro'?'\n\nLasă-ne mai jos numele copilului și telefonul tău, iar noi îți spunem următoarea dată.':'\n\nLeave the child\'s name and your phone below and we\'ll tell you the next date.');$('wf').hidden=false});
  const d=$('cfdots');d.innerHTML='';window._WSL.forEach((w,i)=>{const b=document.createElement('button');b.type='button';b.setAttribute('aria-label',w[lang]);b.onclick=()=>{cfi=i;cfLayout();cfAuto()};d.appendChild(b)});cfLayout()}
 function cfLayout(){const n=(window._WSL||WS).length,w=$('cf').clientWidth,step=Math.min(w*.28,260);[...$('cfs').children].forEach((f,i)=>{let d=i-cfi;if(d>n/2)d-=n;if(d<-n/2)d+=n;const a=Math.abs(d);
   f.style.transform=`translate(-50%,-50%) translateX(${d*step}px) translateZ(${-a*170}px) rotateY(${-d*32}deg) scale(${1-a*.04})`;f.style.zIndex=20-a;f.style.opacity=a>3?0:1;f.style.filter=a?`brightness(${1-a*.12})`:'none';f.style.pointerEvents=a>2?'none':'auto'});
@@ -463,7 +544,7 @@ $('msave').onclick=()=>{const o=$('mout');o.className='out show';if(!mix.length)
 
 let rate=null;function renderFb(){const e=$('emojis');e.innerHTML='';['😍','🙂','😐','🤔'].forEach(x=>{const b=document.createElement('button');b.type='button';b.textContent=x;b.setAttribute('aria-pressed',rate===x);b.setAttribute('aria-label',x);b.onclick=()=>{rate=x;renderFb()};e.appendChild(b)})}
 $('ff').addEventListener('submit',e=>{e.preventDefault();const o=$('fout'),w=$('mwish').value.trim(),v=$('idea').value.trim();o.className='out show';if(!w&&!v&&!rate){o.textContent=lang==='ro'?'Scrie ceva sau alege o notă.':'Write something or pick a rating.';return}
- const txt=[rate,w&&((lang==='ro'?'În meniu aș vrea: ':'On the menu I\'d like: ')+w),v].filter(Boolean).join('\n');o.textContent=(lang==='ro'?'Mulțumim! Mesajul e copiat. Trimite-l pe WhatsApp la 0753 609 479:\n\n':'Thank you! The message is copied. Send it on WhatsApp to 0753 609 479:\n\n')+txt;try{navigator.clipboard.writeText(txt).catch(()=>{})}catch(err){}});
+ const txt=[rate,w&&((lang==='ro'?'În meniu aș vrea: ':'On the menu I\'d like: ')+w),v].filter(Boolean).join('\n');copyTxt(txt);o.textContent=SENDING();send('idei',{detalii:txt}).then(ok=>{o.textContent=ok?(lang==='ro'?'Mulțumim! Am primit mesajul și îl citim cu drag. 💛':'Thank you! We got your message and will read it. 💛'):FAIL()+txt;if(ok){$('mwish').value='';$('idea').value=''}})});
 $('copy').onclick=async()=>{try{await navigator.clipboard.writeText('0753609479')}catch(e){const r=document.createRange();r.selectNodeContents($('phone'));const s=getSelection();s.removeAllRanges();s.addRange(r)}};
 
 const POL=[['cappuccino','Cappuccino 12'],['fresh_portocale','Fresh 10'],['savana','Savana Punch 12'],['croissant','Croissant 8'],['lungo','Lungo 8'],['espresso','Espresso 8'],['americano','Americano 9'],['iced_latte','Iced latte 13'],['frappe_inghetata','Frappé 15']];
@@ -472,7 +553,7 @@ renderPolas();
 function setLang(l){lang=l;document.documentElement.lang=l;document.querySelectorAll('[data-i]').forEach(e=>{const v=tr(e.dataset.i);if(e.hasAttribute('data-html'))e.innerHTML=v;else e.textContent=v});
  document.querySelectorAll('[data-ph]').forEach(e=>e.placeholder=l==='ro'?PH[e.dataset.ph]:T.en[e.dataset.ph]);
  ['ro','en'].forEach(x=>$('lang-'+x).setAttribute('aria-pressed',x===l));try{localStorage.setItem('cc-lang',l)}catch(e){}
- renderTabs();renderBoard();renderChips();renderPkgs();updB();renderWS();renderMix();renderFb()}
+ renderTabs();renderBoard();renderChips();renderPkgs();updB();renderWS();renderMix();renderFb();window.onLang&&window.onLang()}
 $('lang-ro').onclick=()=>setLang('ro');$('lang-en').onclick=()=>setLang('en');
 
 /* ball pit */
@@ -537,5 +618,181 @@ if(window.gsap&&window.ScrollTrigger&&!RM){gsap.registerPlugin(ScrollTrigger);
  gsap.from('.pola',{y:60,scale:.8,duration:.9,ease:'back.out(1.7)',stagger:.12,delay:.2,clearProps:'all'});}
 
 let saved='ro';try{saved=localStorage.getItem('cc-lang')||'ro'}catch(e){}
+
+/* forms → Google Sheet (Apps Script web app); WhatsApp text stays as fallback */
+function send(tip,d){if(!/^https:/.test(ENDPOINT))return Promise.resolve(false);const body=JSON.stringify(Object.assign({tip,limba:lang,website:($('hp')||{}).value||''},d));
+ return fetch(ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body}).then(()=>true,()=>false)}
+const copyTxt=t=>{try{navigator.clipboard.writeText(t).catch(()=>{})}catch(e){}};
+const FAIL=()=>lang==='ro'?'Nu am putut trimite automat. Mesajul e copiat; trimite-l pe WhatsApp la 0753 609 479:\n\n':'We couldn\'t send it automatically. The message is copied; send it on WhatsApp to 0753 609 479:\n\n';
+const SENDING=()=>lang==='ro'?'Se trimite…':'Sending…';
+
+$('anunt').addEventListener('submit',e=>{e.preventDefault();const o=$('nout'),n=$('nname').value.trim(),c=$('ncontact').value.trim();o.className='out show';
+ if(c.length<5){o.textContent=lang==='ro'?'Scrie un telefon sau un email ca să te putem anunța.':'Add a phone or email so we can let you know.';return}
+ const isMail=c.includes('@');o.textContent=SENDING();
+ send('deschidere',{nume:n,telefon:isMail?'':c,email:isMail?c:'',detalii:'Vrea să fie anunțat la deschidere'}).then(ok=>{
+  o.textContent=ok?(lang==='ro'?`Gata${n?', '+n:''}! Ești pe listă și te anunțăm primul. 🎉`:`Done${n?', '+n:''}! You're on the list and will hear first. 🎉`):FAIL()+(n||'')+' '+c;
+  if(ok){const r=$('anunt').getBoundingClientRect();party((r.left+r.width/2)/innerWidth,r.top/innerHeight);$('nname').value='';$('ncontact').value=''}})});
+
+$('wf').addEventListener('submit',e=>{e.preventDefault();const o=$('wres'),k=$('wkid').value.trim(),a=$('wage').value.trim(),p=$('wphone').value.trim();o.className='out show';
+ if(!p){o.textContent=lang==='ro'?'Scrie telefonul tău ca să te putem suna.':'Add your phone so we can call you.';return}
+ const list=[...cfSel].map(i=>'• '+window._WSL[i].ro).join('\n');const txt=`Ateliere:\n${list}\nCopil: ${k||'-'}${a?', '+a+' ani':''}\nTelefon: ${p}`;copyTxt(txt);o.textContent=SENDING();
+ send('atelier',{nume:k,telefon:p,detalii:txt}).then(ok=>{o.textContent=ok?(lang==='ro'?'Am notat! Te sunăm cu data următorului atelier. 🎟️':'Noted! We\'ll call you with the next workshop date. 🎟️'):FAIL()+txt;if(ok)party(.5,.7)})});
+
+/* opening: confetti when the section comes into view */
+(function(){const s=$('top');if(!s||!('IntersectionObserver' in window))return;let last=0;
+ new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting&&Date.now()-last>9000){last=Date.now();setTimeout(()=>{party(.25,.45);window.room3dConfetti&&window.room3dConfetti()},250)}}),{threshold:.35}).observe(s)})();
+
+/* 3D café: stylised dollhouse of the real floor plan (~11 × 8 m) */
+(function(){const cv=$('room3d');if(!cv||!window.THREE)return;const T3=THREE,PI=Math.PI;
+ const r=new T3.WebGLRenderer({canvas:cv,antialias:true,alpha:true});r.setPixelRatio(Math.min(devicePixelRatio,2));r.shadowMap.enabled=true;r.shadowMap.type=T3.PCFSoftShadowMap;r.outputEncoding=T3.sRGBEncoding;
+ const sc=new T3.Scene();const cam=new T3.PerspectiveCamera(40,1,.05,80);
+ const HOME={p:[7.3,7.4,9.1],t:[0,.3,0]};cam.position.set(...HOME.p);
+ sc.add(new T3.HemisphereLight(0xffffff,0xeadcc6,.8));
+ const sun=new T3.DirectionalLight(0xfff3dd,.75);sun.position.set(5,11,7);sun.castShadow=true;sun.shadow.mapSize.set(1024,1024);Object.assign(sun.shadow.camera,{left:-8,right:8,top:8,bottom:-8,near:1,far:30});sun.shadow.bias=-.0006;sc.add(sun);
+ const fill=new T3.PointLight(0xffd59a,.35,9);fill.position.set(-2,2.2,-1);sc.add(fill);
+ const mats={};const M=(c,o)=>{const k=c+JSON.stringify(o||{});return mats[k]||(mats[k]=new T3.MeshStandardMaterial(Object.assign({color:c,roughness:.8},o||{})))};
+ const mat=c=>typeof c==='string'?M(c):c;
+ function add(g,m,x,y,z,par){const o=new T3.Mesh(g,m);o.position.set(x,y,z);o.castShadow=o.receiveShadow=true;(par||sc).add(o);return o}
+ const box=(w,h,d,c,x,y,z,par)=>add(new T3.BoxGeometry(w,h,d),mat(c),x,y+h/2,z,par);
+ const cyl=(rt,rb,h,c,x,y,z,par)=>add(new T3.CylinderGeometry(rt,rb,h,28),mat(c),x,y+h/2,z,par);
+ const sph=(rd,c,x,y,z,par)=>add(new T3.SphereGeometry(rd,24,16),mat(c),x,y,z,par);
+ function tex(w,h,draw,rep){const c=document.createElement('canvas');c.width=w;c.height=h;draw(c.getContext('2d'),w,h);const t=new T3.CanvasTexture(c);t.encoding=T3.sRGBEncoding;t.anisotropy=4;if(rep){t.wrapS=t.wrapT=T3.RepeatWrapping;t.repeat.set(rep[0],rep[1])}return t}
+ const plane=(w,h,m,x,y,z,ry,par)=>{const o=add(new T3.PlaneGeometry(w,h),m,x,y,z,par);o.rotation.y=ry||0;o.castShadow=false;return o};
+ const C=['#f2647a','#ffd23f','#2b86d9','#1d6b4a','#7b5cd6','#f39a23'];
+ const WOOD='#c08a52',WHITE='#f8f5ef',INK='#25332d',WALL='#fbf7ef',H=2.3,TW=.12;
+
+ /* floors: tiles (café) + parquet (play) */
+ const tileT=tex(256,256,(g,w,h)=>{g.fillStyle='#efe9df';g.fillRect(0,0,w,h);g.strokeStyle='#d6ccbb';g.lineWidth=3;g.strokeRect(0,0,w/2,h);g.strokeRect(w/2,0,w/2,h)},[4.6,6.7]);
+ const woodT=tex(256,256,(g,w,h)=>{const cs=['#d9ab72','#cc9a5f','#e2b985','#c79157'];const rh=h/8;for(let i=0;i<8;i++){for(let x=-(i%2)*64;x<w;x+=128){g.fillStyle=cs[(i*3+x/64+8)%4|0];g.fillRect(x,i*rh,128,rh);g.strokeStyle='rgba(90,60,30,.22)';g.lineWidth=2;g.strokeRect(x+1,i*rh+1,126,rh-2)}}},[5.5,8]);
+ const fl=(w,d,t,x)=>{const o=add(new T3.PlaneGeometry(w,d),new T3.MeshStandardMaterial({map:t,roughness:.85}),x,0,0);o.rotation.x=-PI/2;o.castShadow=false};
+ fl(5.5,8,tileT,-2.75);fl(5.5,8,woodT,2.75);box(11.5,.3,8.5,'#e6dccb',0,-.3,0);
+
+ /* walls: the ones between the camera and the room hide (dollhouse cut-away) */
+ const walls=[];const wg=(nx,nz,d)=>{const g=new T3.Group();g.userData={nx,nz,d};sc.add(g);walls.push(g);return g};
+ const jungleT=tex(512,214,(g,w,h)=>{g.fillStyle='#d3efdc';g.fillRect(0,0,w,h);g.fillStyle='#ffd23f';g.beginPath();g.arc(w*.82,h*.28,30,0,7);g.fill();
+  g.fillStyle='#9fd8b0';g.beginPath();g.moveTo(0,h);for(let x=0;x<=w;x+=8)g.lineTo(x,h*.72-Math.sin(x/60)*16);g.lineTo(w,h);g.fill();
+  const leaf=(x,y,r,a,c)=>{g.save();g.translate(x,y);g.rotate(a);g.fillStyle=c;g.beginPath();g.ellipse(0,0,r,r*.38,0,0,7);g.fill();g.strokeStyle='rgba(255,255,255,.35)';g.lineWidth=2;g.beginPath();g.moveTo(-r,0);g.lineTo(r,0);g.stroke();g.restore()};
+  for(let i=0;i<26;i++)leaf((i*97)%w,h-((i*53)%110)-10,22+(i%4)*6,(i%7)-3,['#1d6b4a','#2f8a5f','#57b07a','#7cc795'][i%4]);
+  g.font='800 34px sans-serif';g.fillStyle='#1d6b4a';g.fillText('PLAY & STUDY',24,48)});
+ const menuT=tex(512,256,(g,w,h)=>{g.fillStyle='#1d3b30';g.fillRect(0,0,w,h);g.fillStyle='#ffd23f';g.font='800 46px sans-serif';g.fillText('Craft Café',24,58);g.fillStyle='#fff';g.font='600 24px sans-serif';
+  ['Espresso · Cappuccino · Flat white','Fresh · Limonadă · Smoothie','Babyccino · Ciocolată caldă','Croissant · Patiserie caldă'].forEach((s,i)=>g.fillText(s,24,108+i*38))});
+ const screenT=tex(512,288,(g,w,h)=>{const gr=g.createLinearGradient(0,0,w,h);gr.addColorStop(0,'#2b86d9');gr.addColorStop(1,'#7b5cd6');g.fillStyle=gr;g.fillRect(0,0,w,h);
+  C.forEach((c,i)=>{g.fillStyle=c;g.beginPath();g.arc(60+i*80,200-(i%2)*40,26+(i%3)*8,0,7);g.fill()});g.fillStyle='#fff';g.font='800 40px sans-serif';g.fillText('Hai la desenat!',90,90)});
+ const soonT=tex(512,160,(g,w,h)=>{g.fillStyle='#f2647a';g.fillRect(0,0,w,h);g.fillStyle='#fff';g.font='800 64px sans-serif';g.textAlign='center';g.fillText('În curând!',w/2,82);g.font='700 30px sans-serif';g.fillText('Noiembrie 2026',w/2,128)});
+ const gb=wg(0,-1,4.05);box(11.24,H,TW,WALL,0,0,-4.06,gb);
+ const mur=plane(5.4,H,new T3.MeshStandardMaterial({map:jungleT,roughness:.95}),2.78,H/2,-3.995,0,gb);mur.receiveShadow=true;
+ plane(2.1,1.05,new T3.MeshStandardMaterial({map:menuT,roughness:.6}),-1.9,1.72,-3.99,0,gb);
+ const gl=wg(-1,0,5.55);[[-.76,6.72],[3.86,.52]].forEach(([z,l])=>box(TW,H,l,WALL,-5.56,0,z,gl));box(TW,.25,1,WALL,-5.56,2.05,3.1,gl);
+ plane(1.3,.4,new T3.MeshStandardMaterial({map:soonT}),-5.49,2.52,3.1,PI/2,gl);
+ const gr=wg(1,0,5.55);box(TW,H,8.24,'#e4f0fb',5.56,0,0,gr);
+ const gf=wg(0,1,4.05);box(11.24,.8,TW,WALL,0,0,4.06,gf);box(11.24,.3,TW,WALL,0,2,4.06,gf);[-5.56,-3.3,-1.1,1.1,3.3,5.56].forEach(x=>box(.14,1.2,TW,WALL,x,.8,4.06,gf));
+ plane(11.2,1.2,new T3.MeshStandardMaterial({color:'#bfe3ff',transparent:true,opacity:.22,roughness:.1,side:T3.DoubleSide}),0,1.4,4.06,0,gf);
+ box(.06,2.05,.06,INK,-5.5,0,2.6);box(.06,2.05,.06,INK,-5.5,0,3.6);box(.9,.02,.7,'#e9dcc6',-5.0,0,3.1);
+
+ /* WC block (back-left) */
+ box(TW,H,1.6,WALL,-3.8,0,-3.2);box(1.7,H,TW,WALL,-4.65,0,-2.4);box(.8,2,.03,'#7b5cd6',-4.65,0,-2.34);
+
+ /* bar */
+ box(3.3,.9,.6,WOOD,-1.95,0,-3.68);box(3.34,.04,.64,WHITE,-1.95,.9,-3.68);
+ box(.75,.45,.5,M('#c9ccd1',{metalness:.6,roughness:.3}),-2.4,.94,-3.7);box(.75,.06,.5,'#e04f5f',-2.4,1.39,-3.7);
+ [-2.6,-2.4,-2.2].forEach(x=>cyl(.04,.035,.07,WHITE,x,1.45,-3.62));
+ cyl(.08,.1,.3,'#2b2b2b',-1.65,.94,-3.7);cyl(.13,.05,.2,M('#7a4a2b',{roughness:.5}),-1.65,1.24,-3.7);
+ cyl(.08,.08,.32,M('#e7f2ff',{transparent:true,opacity:.6}),-1.05,.94,-3.7);box(.6,.4,.48,'#2e2e2e',-.6,.94,-3.7);
+ box(3,1,.6,'#1d6b4a',-2,0,-2.2);box(3.06,.05,.66,WHITE,-2,1,-2.2);
+ C.forEach((c,i)=>{const d=add(new T3.CircleGeometry(.1,24),M(c),-3.2+i*.24,.5,-1.895);d.castShadow=false});
+ box(.95,.45,.52,M('#dff1ff',{transparent:true,opacity:.3,roughness:.05}),-.95,1.05,-2.2);
+ ['#d9a05b','#c98a45','#e8b46e','#f2647a','#d9a05b'].forEach((c,i)=>sph(.07,c,-1.3+i*.17,1.14,-2.2));
+ box(.3,.16,.25,'#333',-2.9,1.05,-2.2);
+ [-3,-2,-1].forEach(x=>{cyl(.006,.006,.55,INK,x,1.75,-2.2);const l=add(new T3.ConeGeometry(.17,.2,24,1,true),M('#ffd23f',{side:T3.DoubleSide,emissive:'#ffb000',emissiveIntensity:.35}),x,1.66,-2.2);l.castShadow=false});
+
+ /* parents' lounge: L-bench, tables, plants */
+ box(.55,.45,4.2,'#2f7d5b',-5.2,0,.1);box(.15,.5,4.2,'#2f7d5b',-5.42,.45,.1);
+ for(let i=0;i<6;i++)box(.12,.3,.42,C[i],-5.3,.47,-1.6+i*.7);
+ const chair=(x,z,c,dir)=>{box(.4,.05,.4,c,x,.44,z);box(.05,.42,.4,c,x+.18*dir,.49,z);[[-1,-1],[1,-1],[-1,1],[1,1]].forEach(([a,b])=>box(.03,.44,.03,INK,x+a*.17,0,z+b*.17))};
+ const table=(x,z)=>{cyl(.36,.36,.04,WHITE,x,.72,z);cyl(.035,.035,.72,INK,x,0,z);cyl(.2,.2,.02,INK,x,0,z);cyl(.04,.035,.08,WHITE,x+.1,.76,z)};
+ [-1.4,.1,1.6].forEach((z,i)=>{table(-4.35,z);chair(-3.55,z,C[(i+1)%6],1)});
+ [[-2.2,.2],[-2.2,2]].forEach(([x,z],i)=>{table(x,z);chair(x-.72,z,C[i+3],-1);chair(x+.72,z,C[i+4],1)});
+ const rug=add(new T3.CylinderGeometry(1.3,1.3,.01,48),M('#fde1e6'),-2.2,.005,1.1);rug.castShadow=false;
+ const plant=(x,z,s)=>{cyl(.2*s,.15*s,.42*s,'#c96f4a',x,0,z);[[0,.75,0],[.12,.62,.08],[-.1,.66,-.06],[.04,.9,-.08]].forEach(([a,b,c2])=>sph(.2*s,'#3d9a63',x+a*s,b*s,z+c2*s))};
+ plant(-.45,-1.45,1);plant(-.4,3.6,1.1);plant(-5.15,2.35,.8);
+
+ /* low slatted divider: parents see the play area */
+ for(let z=-1.35;z<=2;z+=.17)box(.05,.95,.1,'#d9b382',0,0,z);box(.08,.04,3.5,'#c48f55',0,.95,.33);
+
+ /* loft + stairs + slide */
+ const LX0=2.8,LX1=5.48,LZ0=-3.98,LZ1=-1.5,LY=1.15,LXm=(LX0+LX1)/2,LZm=(LZ0+LZ1)/2;
+ box(LX1-LX0,.12,LZ1-LZ0,'#ffd23f',LXm,LY-.12,LZm);
+ [[LX0+.05,LZ1-.05],[LX1-.06,LZ1-.05],[LX0+.05,LZ0+.06],[LXm,LZ1-.05]].forEach(([x,z])=>box(.1,LY-.12,.1,WHITE,x,0,z));
+ const net=M('#2b86d9',{transparent:true,opacity:.18,side:T3.DoubleSide});
+ const rail=(x0,x1,z0,z1)=>{const len=Math.hypot(x1-x0,z1-z0),cx=(x0+x1)/2,cz=(z0+z1)/2,ry=Math.atan2(z1-z0,x1-x0);
+  const t=box(len,.05,.05,'#2b86d9',cx,LY+.68,cz);t.rotation.y=-ry;const n=plane(len,.68,net,cx,LY+.34,cz,-ry);
+  const k=Math.max(1,Math.round(len/.6));for(let i=0;i<=k;i++)box(.05,.7,.05,'#2b86d9',x0+(x1-x0)*i/k,LY,z0+(z1-z0)*i/k)};
+ rail(LX0,4.25,LZ1,LZ1);rail(4.95,LX1,LZ1,LZ1);rail(LX0,LX0,-3.3,LZ1);
+ for(let i=0;i<4;i++)box(.35,LY*(i+1)/4,.62,C[i],LX0-(4-i)*.35+.175,0,-3.66);
+ [[3.3,-3.4,0],[3.9,-3.45,2],[4.5,-3.4,4],[5.05,-2.6,1],[3.4,-2.5,5]].forEach(([x,z,c])=>box(.48,.48,.48,C[c],x,0,z));
+ const sl=new T3.Group();sc.add(sl);const SZ1=.85,len=Math.hypot(SZ1-LZ1,LY-.1);
+ add(new T3.BoxGeometry(.56,.04,len),M('#f2647a'),0,0,0,sl);[-.3,.3].forEach(x=>add(new T3.BoxGeometry(.04,.18,len),M('#f2647a'),x,.08,0,sl));
+ sl.position.set(4.6,(LY+.1)/2+.02,(LZ1+SZ1)/2);sl.rotation.x=Math.atan2(LY-.1,SZ1-LZ1);
+ box(.56,.04,.35,'#f2647a',4.6,.06,SZ1+.15);box(1.1,.05,.75,'#7b5cd6',4.6,0,1.45);
+
+ /* ball pit */
+ const PX0=.55,PX1=2.45,PZ0=-1.25,PZ1=.65,PH=.45;
+ box(PX1-PX0,PH,.15,'#2b86d9',(PX0+PX1)/2,0,PZ0);box(PX1-PX0,PH,.15,'#2b86d9',(PX0+PX1)/2,0,PZ1);box(.15,PH,PZ1-PZ0,'#2b86d9',PX0,0,(PZ0+PZ1)/2);box(.15,PH,PZ1-PZ0,'#2b86d9',PX1,0,(PZ0+PZ1)/2);
+ const NB=380,balls=new T3.InstancedMesh(new T3.SphereGeometry(.075,12,8),new T3.MeshStandardMaterial({roughness:.35}),NB);balls.castShadow=true;
+ const dm=new T3.Object3D(),col=new T3.Color();for(let i=0;i<NB;i++){dm.position.set(PX0+.15+Math.random()*(PX1-PX0-.3),.07+Math.random()*.32,PZ0+.15+Math.random()*(PZ1-PZ0-.3));dm.updateMatrix();balls.setMatrixAt(i,dm.matrix);balls.setColorAt(i,col.set(C[i%6]))}sc.add(balls);
+
+ /* study & play: kids' tables + 65" interactive screen */
+ const sr=add(new T3.CylinderGeometry(1.5,1.5,.01,48),M('#dcecfb'),2.7,.005,3);sr.castShadow=false;
+ [[1.9,2.45],[3.2,2.45],[1.9,3.55],[3.2,3.55],[.85,3]].forEach(([x,z],i)=>{box(.6,.03,.6,WHITE,x,.5,z);[[-1,-1],[1,-1],[-1,1],[1,1]].forEach(([a,b])=>box(.04,.5,.04,C[(i+2)%6],x+a*.26,0,z+b*.26));
+  [[-.42,0],[.42,0]].forEach(([dx],j)=>{box(.28,.03,.28,C[(i+j)%6],x+dx,.28,z);box(.03,.26,.28,C[(i+j)%6],x+dx+(dx<0?-.13:.13),.31,z);[[-1,-1],[1,-1],[-1,1],[1,1]].forEach(([a,b])=>box(.025,.28,.025,INK,x+dx+a*.11,0,z+b*.11))});
+  box(.2,.005,.28,'#ffffff',x,.535,z)});
+ box(.6,.05,.9,'#4a4a4a',5.1,0,3);box(.08,1,.08,'#666',5.25,0,3);box(.06,.84,1.48,'#111',5.2,.95,3);
+ plane(1.4,.78,new T3.MeshBasicMaterial({map:screenT}),5.165,1.37,3,-PI/2);
+
+ /* opening-day balloons */
+ const bl=[];[[.3,3.6,0],[.55,3.75,1],[.15,3.85,2],[-5.1,3.5,4],[-4.9,3.75,5]].forEach(([x,z,c],i)=>{const b=sph(.17,M(C[c],{roughness:.3}),x,1.9+i%2*.15,z);b.scale.y=1.18;cyl(.003,.003,1.6,'#888',x,.3,z);bl.push(b)});
+
+ /* 3D confetti rain */
+ const NC=260,cf=new T3.InstancedMesh(new T3.PlaneGeometry(.06,.1),new T3.MeshStandardMaterial({side:T3.DoubleSide,roughness:.6}),NC);cf.visible=false;sc.add(cf);
+ const P=[];for(let i=0;i<NC;i++){P.push({p:new T3.Vector3(),v:0,r:new T3.Euler(),s:Math.random()*.08+.03});cf.setColorAt(i,col.set(C[i%6]))}
+ let cfOn=0;window.room3dConfetti=()=>{P.forEach(q=>{q.p.set((Math.random()-.5)*10,3+Math.random()*3,(Math.random()-.5)*7);q.v=.012+Math.random()*.02;q.r.set(Math.random()*6,Math.random()*6,0)});cf.visible=true;cfOn=performance.now()};
+ function stepConfetti(){if(!cf.visible)return;let moving=0;P.forEach((q,i)=>{if(q.p.y>.01){q.p.y-=q.v;q.p.x+=Math.sin(q.p.y*3+i)*.006;q.r.x+=q.s;q.r.y+=q.s*.7;moving++}else{q.p.y=.008;q.r.set(-PI/2,0,q.r.z)}dm.position.copy(q.p);dm.rotation.copy(q.r);dm.updateMatrix();cf.setMatrixAt(i,dm.matrix)});cf.instanceMatrix.needsUpdate=true;if(!moving&&performance.now()-cfOn>14000)cf.visible=false}
+
+ /* zones, tags, guided tour */
+ const Z=[{k:'door',e:'🚪',ro:'Intrarea',en:'Entrance',dro:'Bine ai venit! De la ușă vezi tot: barul, lounge-ul și zona de joacă.',den:'Welcome! From the door you see it all: bar, lounge and play area.',p:[-5.2,2.3,3.1],c:[-4.6,1.6,3.3],t:[1.5,.7,-1]},
+  {k:'bar',e:'☕',ro:'Barul',en:'The bar',dro:'Cafea de specialitate, fresh-uri și patiserie caldă, făcute pe loc.',den:'Specialty coffee, fresh juices and warm pastries, made on the spot.',p:[-2,1.6,-2.3],c:[-.7,1.95,1.3],t:[-2.1,.95,-2.7]},
+  {k:'lounge',e:'🛋️',ro:'Lounge pentru părinți',en:'Parents\' lounge',dro:'Banchetă comodă, mese și vedere directă spre zona de joacă.',den:'A comfy bench, tables and a clear view of the play area.',p:[-4.4,1.25,.1],c:[-.7,1.85,-.5],t:[-4.6,.55,.9]},
+  {k:'loft',e:'🛝',ro:'Loft & tobogan',en:'Loft & slide',dro:'Urcă pe scări, se ascund în loft și coboară pe tobogan.',den:'Up the stairs, hide in the loft, down the slide.',p:[4.1,2.2,-2.7],c:[1.2,1.7,1.7],t:[4,1.1,-2.3]},
+  {k:'pit',e:'🔵',ro:'Piscina cu bile',en:'Ball pit',dro:'Sute de bile colorate. Părinții curajoși sunt bineveniți.',den:'Hundreds of colourful balls. Brave parents welcome.',p:[1.5,.85,-.3],c:[.2,1.9,2.6],t:[1.5,.2,-.3]},
+  {k:'study',e:'🎨',ro:'Study & Play',en:'Study & Play',dro:'Măsuțe pentru copii și un ecran interactiv de 65" pentru desen și ateliere.',den:'Kids\' tables and a 65" interactive screen for drawing and workshops.',p:[2.6,1.2,3],c:[.4,1.7,.9],t:[4.6,.9,3.1]}];
+ const tags=$('tags'),zones=$('zones'),capEl=$('tcap');let cur=-1,tourT=null;
+ const tgt=new T3.Vector3(...HOME.t);
+ const ctl=T3.OrbitControls?new T3.OrbitControls(cam,cv):null;
+ if(ctl){ctl.target.copy(tgt);ctl.enableDamping=true;ctl.dampingFactor=.08;ctl.maxPolarAngle=1.5;ctl.minDistance=1;ctl.maxDistance=20;ctl.enablePan=false;ctl.autoRotate=!RM;ctl.autoRotateSpeed=.5}
+ const coarse=matchMedia('(pointer:coarse)').matches,lock=$('tlock');cv.style.touchAction='pan-y';
+ if(ctl&&coarse){ctl.enabled=false;lock.hidden=false;lock.onclick=()=>{ctl.enabled=!ctl.enabled;cv.style.touchAction=ctl.enabled?'none':'pan-y';lockTxt()}}
+ function lockTxt(){if(lock)lock.textContent=ctl&&ctl.enabled?(lang==='ro'?'Gata ✓':'Done ✓'):(lang==='ro'?'Explorează 👆':'Explore 👆')}
+ function cap(){if(cur<0){capEl.classList.remove('show');return}const z=Z[cur];capEl.innerHTML=`<b>${z.e} ${esc(z[lang])}</b>${esc(lang==='ro'?z.dro:z.den)}`;capEl.classList.add('show')}
+ function fly(p,t){if(window.gsap&&!RM){gsap.to(cam.position,{x:p[0],y:p[1],z:p[2],duration:1.7,ease:'power2.inOut'});gsap.to(ctl?ctl.target:tgt,{x:t[0],y:t[1],z:t[2],duration:1.7,ease:'power2.inOut'})}else{cam.position.set(...p);(ctl?ctl.target:tgt).set(...t)}}
+ function go(i){cur=i;if(ctl)ctl.autoRotate=i<0&&!RM;i<0?fly(HOME.p,HOME.t):fly(Z[i].c,Z[i].t);cap();renderUI()}
+ function stopTour(){clearInterval(tourT);tourT=null;setTourBtn()}
+ function setTourBtn(){const b=$('tourBtn');if(b)b.textContent=tourT?(lang==='ro'?'Oprește turul ⏸':'Stop the tour ⏸'):tr('o3')}
+ function startTour(){stopTour();go(0);let i=0;tourT=setInterval(()=>{i++;if(i>=Z.length){stopTour();go(-1);return}go(i)},5200);setTourBtn()}
+ function renderUI(){tags.innerHTML='';Z.forEach((z,i)=>{const b=document.createElement('button');b.type='button';b.className='tag';b.textContent=z.e+' '+z[lang];b.setAttribute('aria-pressed',i===cur);b.onclick=()=>{stopTour();go(i)};z.el=b;tags.appendChild(b)});
+  zones.innerHTML='';[{e:'🏠',ro:'Toată cafeneaua',en:'Whole café'}].concat(Z).forEach((z,j)=>{const b=document.createElement('button');b.type='button';b.className='chip';b.textContent=z.e+' '+z[lang];b.setAttribute('aria-pressed',j-1===cur);b.onclick=()=>{stopTour();go(j-1)};zones.appendChild(b)});lockTxt();setTourBtn()}
+ $('tourBtn').onclick=()=>{if(tourT){stopTour();return}$('top').scrollIntoView({behavior:RM?'auto':'smooth',block:'start'});party(.5,.4);window.room3dConfetti();startTour()};
+ cv.addEventListener('pointerdown',()=>{if(tourT)stopTour();if(ctl)ctl.autoRotate=false});
+ window.onLang=()=>{renderUI();cap()};renderUI();
+ let vis=true;new IntersectionObserver(es=>{vis=es[0].isIntersecting},{rootMargin:'100px'}).observe(cv);
+ function size(){const w=cv.clientWidth,h=cv.clientHeight;if(!w||!h)return;r.setSize(w,h,false);cam.aspect=w/h;cam.fov=w/h<1.1?52:40;cam.updateProjectionMatrix()}new ResizeObserver(size).observe(cv);size();
+ const v=new T3.Vector3();
+ (function loop(t){requestAnimationFrame(loop);if(!vis)return;
+  if(ctl)ctl.update();else cam.lookAt(tgt);
+  walls.forEach(g=>{const u=g.userData;g.visible=!(cam.position.x*u.nx+cam.position.z*u.nz>u.d)});
+  bl.forEach((b,i)=>b.position.y=1.95+Math.sin(t/900+i)*.06);stepConfetti();
+  const w=cv.clientWidth,h=cv.clientHeight;Z.forEach(z=>{if(!z.el)return;v.set(...z.p).project(cam);const on=v.z<1&&Math.abs(v.x)<.95&&Math.abs(v.y)<.95;z.el.style.opacity=on?1:0;z.el.style.pointerEvents=on?'auto':'none';z.el.style.transform=`translate(-50%,-50%) translate(${(v.x+1)/2*w}px,${(1-v.y)/2*h}px)`});
+  r.render(sc,cam)})(0);
+})();
+
 setLang(saved==='en'?'en':'ro');
 </script>
