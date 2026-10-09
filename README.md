@@ -1,2 +1,3 @@
-# craftcafe
-Site Craft Cafe - Play &amp; Study
+# Craft Café · Play & Study
+
+Site-ul cafenelei Craft Café · Play & Study din Lunca Cetățuii, Iași.
